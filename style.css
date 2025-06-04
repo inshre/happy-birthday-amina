@@ -1,0 +1,316 @@
+/* Основные стили */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    background: #0a0a0a;
+}
+
+/* Фон */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('background.jpg') center/cover no-repeat;
+    opacity: 0.8;
+    z-index: -1;
+    filter: brightness(0.7);
+}
+
+/* Общие стили для экранов */
+.screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    opacity: 1 !important;
+}
+
+.anim-fly, .anim-pop, .anim-scale {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+
+/* Добавляем новые стили */
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 6rem;
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); }
+    to { text-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 10px rgba(255, 255, 255, 0.7); }
+}
+
+/* Увеличиваем фото в "Наши моменты" */
+.grid-container img {
+    width: 100%;
+    height: 400px; /* Увеличили высоту */
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+/* Приколюха для фото */
+.grid-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+    filter: hue-rotate(90deg);
+}
+
+/* Лента памяти - анимация только при появлении */
+.memory-tape .tape {
+    animation: none; /* Отключаем автоматическую анимацию */
+}
+
+.memory-tape.active .tape {
+    animation: tape-scroll 40s linear infinite;
+}
+
+.zoom-photo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    z-index: 1000;
+    max-width: 80vw;
+    max-height: 80vh;
+    box-shadow: 0 0 0 1000px rgba(0,0,0,0.8) !important;
+    cursor: zoom-out;
+}
+
+/* Кнопка-сюрприз */
+.surprise-btn {
+    background: linear-gradient(45deg, #ffd700, #ffcc00);
+    border: none;
+    padding: 18px 45px;
+    font-size: 1.8rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    color: #000;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+    transition: all 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.surprise-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.9);
+}
+
+.surprise-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffcc00, #ffd700);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.surprise-btn:hover::after {
+    opacity: 1;
+}
+
+/* Заголовок */
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    margin: 0;
+    background: linear-gradient(90deg, #ffd700, #ffcc00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 2.2rem;
+    margin-top: 25px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.name {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.stars {
+    font-size: 2rem;
+    margin-top: 30px;
+    animation: twinkle 2s infinite alternate;
+    opacity: 0.8;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+/* Анимации */
+.anim-fly {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.anim-scale {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.anim-pop {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.active .anim-fly,
+.active .anim-scale,
+.active .anim-pop {
+    transform: none;
+    opacity: 1;
+}
+
+/* Сетка фото */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-container img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
+}
+
+.grid-container img:hover {
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.3);
+}
+
+/* 3D-карточки */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    perspective: 1000px;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.card {
+    width: 280px;
+    height: 380px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s;
+}
+
+.card:hover {
+    transform: rotateY(10deg) scale(1.05);
+}
+
+/* Лента памяти */
+.memory-tape {
+    overflow-x: auto;
+    padding-bottom: 60px;
+    width: 100%;
+}
+
+.tape {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    animation: tape-scroll 40s linear infinite;
+}
+
+.tape-photo {
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: sepia(0.2);
+    transition: all 0.4s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.tape-photo:hover {
+    filter: none;
+    transform: scale(1.03);
+}
+
+@keyframes tape-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Поздравление */
+.wish-block {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.hearts {
+    font-size: 2.5rem;
+    margin-top: 30px;
+    animation: pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .title { font-size: 5rem; }
+    .subtitle { font-size: 1.6rem; }
+    .grid-container { grid-template-columns: 1fr; }
+    .card { width: 250px; height: 350px; }
+    .tape-photo { width: 280px; height: 380px; }
+}

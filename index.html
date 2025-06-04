@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18 лет – Твой день!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Фон -->
+    <div class="background"></div>
+
+    <!-- Конфетти -->
+    <canvas id="confetti"></canvas>
+
+    <!-- Аудио -->
+    <audio id="birthdaySong" src="birthdayAudio.mp3"></audio>
+
+    <!-- Основной контент -->
+    <main>
+        <!-- Экран 1: Кнопка-сюрприз -->
+        <section class="screen surprise-screen active">
+            <div class="main-title">HAPPY BIRTHDAY!</div>
+            <button id="surpriseBtn" class="surprise-btn">🎁 Открыть сюрприз!</button>
+        </section>
+
+        <!-- Экран 2: Заголовок -->
+        <section class="screen hero">
+            <h1 class="title anim-fly">18 <span>лет</span></h1>
+            <p class="subtitle anim-fly">С Днём Рождения, <span class="name">Амина</span>!</p>
+            <div class="stars">✦✦✦</div>
+        </section>
+
+        <!-- Секция 1: Классическая сетка -->
+        <section class="screen photo-grid-section">
+            <h2 class="anim-fly">Наши моменты</h2>
+            <div class="grid-container">
+                <img src="photo1.jpg" alt="Фото 1" class="photo anim-pop">
+                <img src="photo2.jpg" alt="Фото 2" class="photo anim-pop">
+                <img src="photo3.jpg" alt="Фото 3" class="photo anim-pop">
+                <img src="photo4.jpg" alt="Фото 4" class="photo anim-pop">
+                <img src="photo5.jpg" alt="Фото 5" class="photo anim-pop">
+                <img src="photo6.jpg" alt="Фото 6" class="photo anim-pop">
+            </div>
+        </section>
+
+        <!-- Секция 2: 3D-карточки -->
+        <section class="screen cards-section">
+            <h2 class="anim-scale">Ты – огонь!</h2>
+            <div class="cards">
+                <div class="card" style="--i:0">
+                    <img src="photo7.jpg" alt="Фото 7">
+                </div>
+                <div class="card" style="--i:1">
+                    <img src="photo8.jpg" alt="Фото 8">
+                </div>
+                <div class="card" style="--i:2">
+                    <img src="photo9.jpg" alt="Фото 9">
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 3: Лента памяти -->
+        <section class="screen memory-tape">
+            <h2 class="anim-fly">Лента памяти</h2>
+            <div class="tape">
+                <img src="photo10.jpg" alt="Фото 10" class="tape-photo">
+                <img src="photo11.jpg" alt="Фото 11" class="tape-photo">
+                <img src="photo12.jpg" alt="Фото 12" class="tape-photo">
+                <img src="photo13.jpg" alt="Фото 13" class="tape-photo">
+                <img src="photo14.jpg" alt="Фото 14" class="tape-photo">
+                <img src="photo15.jpg" alt="Фото 15" class="tape-photo">
+                <img src="photo16.jpg" alt="Фото 16" class="tape-photo">
+                <img src="photo10.jpg" alt="Фото 10" class="tape-photo">
+                <img src="photo11.jpg" alt="Фото 11" class="tape-photo">
+                <img src="photo12.jpg" alt="Фото 12" class="tape-photo">
+                <img src="photo13.jpg" alt="Фото 13" class="tape-photo">
+                <img src="photo14.jpg" alt="Фото 14" class="tape-photo">
+                <img src="photo15.jpg" alt="Фото 15" class="tape-photo">
+                <img src="photo16.jpg" alt="Фото 16" class="tape-photo">
+                <img src="photo10.jpg" alt="Фото 10" class="tape-photo">
+                <img src="photo11.jpg" alt="Фото 11" class="tape-photo">
+                <img src="photo12.jpg" alt="Фото 12" class="tape-photo">
+                <img src="photo13.jpg" alt="Фото 13" class="tape-photo">
+                <img src="photo14.jpg" alt="Фото 14" class="tape-photo">
+                <img src="photo15.jpg" alt="Фото 15" class="tape-photo">
+                <img src="photo16.jpg" alt="Фото 16" class="tape-photo">
+                <img src="photo10.jpg" alt="Фото 10" class="tape-photo">
+                <img src="photo11.jpg" alt="Фото 11" class="tape-photo">
+                <img src="photo12.jpg" alt="Фото 12" class="tape-photo">
+                <img src="photo13.jpg" alt="Фото 13" class="tape-photo">
+                <img src="photo14.jpg" alt="Фото 14" class="tape-photo">
+                <img src="photo15.jpg" alt="Фото 15" class="tape-photo">
+                <img src="photo16.jpg" alt="Фото 16" class="tape-photo">
+            </div>
+        </section>
+
+        <!-- Экран 4: Поздравление -->
+        <section class="screen wishes">
+            <div class="wish-block anim-fly">
+                <h2>Пусть сбываются мечты!</h2>
+                <p>Ты заслуживаешь всего самого лучшего ✨</p>
+                <div class="hearts">💖💖💖</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
